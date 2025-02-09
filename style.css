@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: Roboto;
+}
+.container {
+    padding: 20px;
+}
+
+.section{
+    max-width: 1600px;
+    height: 878px;
+    margin: 0 auto;
+}
+
+.top{
+    margin: 51px 0px 64px 0px;
+}
+.title {
+    text-align: start;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 46.88px;
+}
+.paragraph{
+   
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+
+}
+.grid {
+    display: grid;
+    grid-template-columns: 376px 512px 648px;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+}
+.grid__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    background: rgba(0, 0, 0, 0.1);
+   
+   
+}
+.grid__item img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.location {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    color: white;
+    padding: 10px 15px;
+}
+.location h2{
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.location p{
+    margin-top: 6px;
+    font-weight:300;
+}
+
+.grid__item--greece{
+    
+    width: 512px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+}
+
+.grid__item--london{
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+}
+
+.grid__item--paris{
+   
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: end;
+    width: 375px;
+    
+
+}
+
+.grid__item--amsterdam{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: start;
+}
+.grid__item--vietnam{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    
+}
+
+img {
+    mix-blend-mode: multiply;
+  }
+
+
+@media (max-width: 1049px){
+
+    .section{
+      
+      
+        margin: 0 auto;
+
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 70px 1fr;
+        grid-template-rows:  
+        540px 413.03px 
+        340px;
+        gap: 25px;
+       
+        grid-template-areas:
+            "g g p"
+            "g g v"
+            "l l l"
+            "a o o";
+        max-width: 921px;
+    }
+
+    .grid__item--greece {
+        grid-area: g;
+        border-radius: 32px;
+        height: 540px;
+    }
+    .grid__item--paris {
+        grid-area: p;
+        height: 254px;
+        width: 377px;
+        justify-self: stretch;
+    }
+    .grid__item--vietnam {
+        grid-area: v;
+        width: 377px;
+        height: 254px;
+        grid-row: 1/2;
+        align-self: end;
+    }
+    .grid__item--london {
+        grid-area: l;
+        grid-column: 1 / 4; 
+        grid-row: 2/3;
+        justify-items: stretch;
+        justify-self: stretch;
+     
+    }
+    .grid__item--amsterdam {
+        grid-area: a;
+        width: 295px;
+        grid-row: 3/4;
+        justify-items: stretch;
+     
+    }
+    .grid__item--oldrain {
+        grid-area: o;
+        width: 594px;
+        grid-row: 3/4;
+        grid-column-start: 1;
+        justify-self: end;              
+    }
+
+}
+
+
+
+@media (max-width: 500px) {
+
+    .grid {
+       grid-template-columns:1fr ;
+       grid-template-rows: repeat(6,1fr);
+       row-gap: 22px;
+    }
+
+    .grid__item img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .grid__item--greece{
+        grid-row:1/2 ;
+        height: 254px;
+        width: 425px;
+    }
+
+    .grid__item--london {
+        grid-row:2/3 ;
+        width: 425px;
+        height: 100%;
+       
+    }
+    .grid__item--paris {
+        grid-row:3/4 ;
+        grid-column:1/2 ;
+        width: 425px;
+    }
+    .grid__item--vietnam {
+        grid-row:4/5 ;
+        grid-column: 1/2;
+        width: 425px;
+     
+    }
+    .grid__item--oldrain {
+        grid-row:5/6 ;
+        grid-column: 1/2;
+        width: 425px;
+        height: 254px;
+    }
+    .grid__item--amsterdam {
+        grid-row:6/7 ;
+       
+        width: 425px;
+        height: 240px;
+        border-radius: 32px;
+        
+    }
+    .grid__item--amsterdam img{
+        position: absolute;
+    }
+    .grid__item--greece img{
+        position: absolute;
+        bottom: 0;
+    }
+    
+    .grid__item--paris img{
+        position: absolute;
+        bottom: 0;
+    }
+
+}
