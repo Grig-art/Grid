@@ -4,18 +4,17 @@
     box-sizing: border-box;
 }
 
-
 body {
     margin: 0;
     font-family: Roboto;
 }
 .container {
-    padding: 20px;
+  padding: 20px;
 }
 
 .section{
     max-width: 1600px;
-    height: 878px;
+    min-height: 878px;
     margin: 0 auto;
 }
 
@@ -29,16 +28,13 @@ body {
     line-height: 46.88px;
 }
 .paragraph{
-   
     font-weight: 400;
     font-size: 24px;
     line-height: 36px;
-
-
 }
 .grid {
     display: grid;
-    grid-template-columns: 376px 512px 648px;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 32px;
     list-style: none;
     padding: 0;
@@ -48,14 +44,15 @@ body {
     overflow: hidden;
     border-radius: 32px;
     background: rgba(0, 0, 0, 0.1);
-   
-   
 }
-.grid__item img {
+
+img {
     max-width: 100%;
     display: block;
     object-fit: cover;
+    mix-blend-mode: multiply;
 }
+
 .location {
     position: absolute;
     bottom: 5px;
@@ -74,66 +71,44 @@ body {
 }
 
 .grid__item--greece{
-    
     width: 512px;
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: span 2;
+    grid-area: 1/2/span 2/3;
 }
 
 .grid__item--london{
-    grid-column-start: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    
+    width: 648px;
+    grid-area: 1/3/2/4;  
 }
 
 .grid__item--paris{
-   
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-area: 2/3/3/4;
     justify-self: end;
-    width: 375px;
-    
-
+    width: 375px;    
 }
 
 .grid__item--amsterdam{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-area: 2/3/3/4;
     justify-self: start;
 }
 .grid__item--vietnam{
+    width: 376px;
     grid-column-start: 1;
     grid-column-end: 2;
-    
 }
 
-img {
-    mix-blend-mode: multiply;
-  }
+.grid__item--oldrain{
+    width: 376px;
+}
 
 
 @media (max-width: 1049px){
-
-    .section{
-      
-      
-        margin: 0 auto;
-
-    }
+    
     .grid {
         display: grid;
-        grid-template-columns: 1fr 70px 1fr;
-        grid-template-rows:  
-        540px 413.03px 
-        340px;
-        gap: 25px;
-       
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows:  540px 413.03px 340px;
+        row-gap:32px;
+        column-gap: 0px;
         grid-template-areas:
             "g g p"
             "g g v"
@@ -149,7 +124,7 @@ img {
     }
     .grid__item--paris {
         grid-area: p;
-        height: 254px;
+        height:  254px; 
         width: 377px;
         justify-self: stretch;
     }
@@ -162,92 +137,69 @@ img {
     }
     .grid__item--london {
         grid-area: l;
-        grid-column: 1 / 4; 
-        grid-row: 2/3;
+        width: 100%;
+        grid-area: 2/1/3/4;
         justify-items: stretch;
         justify-self: stretch;
-     
     }
     .grid__item--amsterdam {
         grid-area: a;
         width: 295px;
         grid-row: 3/4;
         justify-items: stretch;
-     
     }
     .grid__item--oldrain {
         grid-area: o;
         width: 594px;
-        grid-row: 3/4;
-        grid-column-start: 1;
+        grid-area: 3/1/4/4;
         justify-self: end;              
     }
 
 }
 
 
-
 @media (max-width: 500px) {
 
     .grid {
-       grid-template-columns:1fr ;
-       grid-template-rows: repeat(6,1fr);
-       row-gap: 22px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        justify-content: center;
+        grid-template-areas:
+            "g"
+            "l"
+            "p"
+            "v"
+            "o"
+            "a";
     }
 
-    .grid__item img {
-        width: 100%;
-        height: 100%;
+    .grid__item--greece {
+        grid-area: g;
+        height:254px ;
     }
-    
-    .grid__item--greece{
-        grid-row:1/2 ;
-        height: 254px;
-        width: 425px;
-    }
-
     .grid__item--london {
-        grid-row:2/3 ;
-        width: 425px;
-        height: 100%;
-       
+        grid-area: l;     
     }
     .grid__item--paris {
-        grid-row:3/4 ;
-        grid-column:1/2 ;
-        width: 425px;
+        grid-area: p;
     }
     .grid__item--vietnam {
-        grid-row:4/5 ;
-        grid-column: 1/2;
-        width: 425px;
-     
+        grid-area: v;
     }
     .grid__item--oldrain {
-        grid-row:5/6 ;
-        grid-column: 1/2;
-        width: 425px;
-        height: 254px;
+        grid-area: o;
     }
     .grid__item--amsterdam {
-        grid-row:6/7 ;
-       
-        width: 425px;
-        height: 240px;
-        border-radius: 32px;
-        
-    }
-    .grid__item--amsterdam img{
-        position: absolute;
-    }
-    .grid__item--greece img{
-        position: absolute;
-        bottom: 0;
-    }
-    
-    .grid__item--paris img{
-        position: absolute;
-        bottom: 0;
+        grid-area: a;
     }
 
+    .grid__item{
+        width: 100%;
+    }
+    
+    img{
+        width: 100%;
+        height:254px ;
+    }
+            
 }
